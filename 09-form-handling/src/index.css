@@ -1,0 +1,9 @@
+*{
+  margin:0;
+  padding:0;
+}
+input,button{
+  padding:20px;
+  margin:5px;
+  gap:4px;
+}

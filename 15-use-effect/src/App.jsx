@@ -1,34 +1,39 @@
+import React from 'react'
+import { useEffect } from 'react'
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
-
+const App = () => {
+  const [a,setA]= useState(0)
+  const [b,setB]= useState(0)
+  function achangeing(){
+    console.log('a is changing ');
+  }
+   function bchangeing(){
+    console.log('b is changing ');
+  }
+  useEffect(function(){
+    achangeing()
+  },[a])
+  useEffect(function(){
+    bchangeing()
+  },[b])
   return (
-    <>
+
+    <div>
       <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        <h1>{a}</h1>
+        <h1>{b}</h1>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+      <button onClick={function(){
+        setA(a+2)
+      }}> change A </button>
+      <button onClick={function(){
+        setB(b-5)
+
+      }}>change B
+
+      </button>
+    </div>
   )
 }
 
